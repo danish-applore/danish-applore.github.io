@@ -36,6 +36,21 @@
             align-self: center;
         }
 
+        .header {
+            max-width: 80%;
+            max-height: 20%;
+            margin: 50px auto;
+            background-color: rgba(0, 0, 0, 0.383);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            /* Use flexbox for layout */
+            align-items: center;
+            /* Vertically center align items */
+            align-self: center;
+        }
+
         .logo {
             flex: 1;
             padding: 10%;
@@ -72,6 +87,19 @@
             text-align: center;
             font-weight: 500;
             color: #ffffffd3;
+        }
+
+        h2 {
+            text-align: center;
+            font-weight: 600;
+            color: #ffffffd3;
+        }
+
+        h3 {
+            /* text-align: center; */
+            font-weight: 500;
+            color: #ffffffd3;
+            margin-left: 20px;
         }
 
         .form-group {
@@ -117,6 +145,10 @@
 </head>
 
 <body>
+    <div class="header">
+        <h2>Revi Value </h2>
+        <h3>Support</h3>
+    </div>
     <div class="container">
         <div class="logo">
             <img src="company_logo.png" alt="Company Logo">
@@ -124,7 +156,7 @@
         <div class="divider"></div>
         <div class="contact-form">
             <h1>Need Some Help?</h1>
-            <form action="#" method="post">
+            <form action="#" method="post" id="contactForm">
                 <div class="form-group">
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="name" required>
@@ -143,6 +175,23 @@
             </form>
         </div>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("contactForm").addEventListener("submit", function (event) {
+                // Prevent default form submission
+                event.preventDefault();
+
+                // Clear all text fields
+                document.getElementById("name").value = "";
+                document.getElementById("email").value = "";
+                document.getElementById("message").value = "";
+
+                // Show success pop-up
+                alert("Your message has been submitted successfully!");
+            });
+        });
+    </script>
+
 </body>
 
 </html>
